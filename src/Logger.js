@@ -1,16 +1,16 @@
 const chalk = require('chalk')
 
 class Logger {
-  discord(message) {
-    return console.log(chalk.bgMagenta.black(`[${this.getCurrentTime()}] Discord >`) + ' ' + chalk.magenta(message))
+  client(message) {
+    return console.log(chalk.bgGreenBright.black(`[${this.getCurrentTime()}] Client >`) + ' ' + chalk.greenBright(message))
   }
 
-  minecraft(message) {
-    return console.log(chalk.bgGreenBright.black(`[${this.getCurrentTime()}] Minecraft >`) + ' ' + chalk.greenBright(message))
+  party(message) {
+    return console.log(chalk.bgMagenta.black(`[${this.getCurrentTime()}] Party >`) + ' ' + chalk.magenta(message))
   }
 
-  express(message) {
-    return console.log(chalk.bgCyan.black(`[${this.getCurrentTime()}] Express >`) + ' ' + chalk.cyan(message))
+  info(message) {
+    return console.log(chalk.bgCyan.black(`[${this.getCurrentTime()}] Info >`) + ' ' + chalk.cyan(message))
   }
 
   warn(message) {
@@ -19,10 +19,6 @@ class Logger {
 
   error(message) {
     return console.log(chalk.bgRedBright.black(`[${this.getCurrentTime()}] Error >`) + ' ' + chalk.redBright(message))
-  }
-
-  broadcast(message, location) {
-    return console.log(chalk.inverse(`[${this.getCurrentTime()}] ${location} Broadcast >`) + ' ' + message)
   }
 
   getCurrentTime() {

@@ -1,6 +1,8 @@
-/node_modules
-npm-debug.log
-yarn-error.log
+# Automatically installed when you run `yarn`
+node_modules/
+
+# Private info
 config.json
+
+# VSCode files
 /.vscode
-.idea

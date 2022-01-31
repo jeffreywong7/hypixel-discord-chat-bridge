@@ -3,46 +3,36 @@ const fs = require('fs')
 class Configuration {
   properties = {
     server: {
-      host: 'localhost',
-      port: 25565,
+      host: 'mc.hypixel.net'
     },
     minecraft: {
+      accountType: null,
       username: null,
-      password: null,
-      lobbyHolder: null,
-      accountType: 'mojang',
+      password: null
     },
-    discord: {
-      token: null,
-      channel: null,
-      commandRole: '',
-      ownerId: '',
-      prefix: '!',
-      messageMode: 'bot'
-    },
-    express: {
-      enabled: false,
-      port: 8880,
-      authorization: "authorizationHeaderString"
+    fragruns: {
+      mode: null,
+      guildName: null,
+      friendsName: null,
+      whitelistUsers: null,
+      soloUser: null,
+      blacklist: null
     }
   }
 
   environmentOverrides = {
     SERVER_HOST: val => (this.properties.server.host = val),
-    SERVER_PORT: val => (this.properties.server.port = val),
     MINECRAFT_USERNAME: val => (this.properties.minecraft.username = val),
     MINECRAFT_PASSWORD: val => (this.properties.minecraft.password = val),
     MINECRAFT_LOBBY_HOLDER: val => (this.properties.minecraft.lobbyHolder = val),
     MINECRAFT_ACCOUNT_TYPE: val => (this.properties.minecraft.accountType = val),
-    DISCORD_TOKEN: val => (this.properties.discord.token = val),
-    DISCORD_CHANNEL: val => (this.properties.discord.channel = val),
-    DISCORD_COMMAND_ROLE: val => (this.properties.discord.commandRole = val),
-    DISCORD_OWNER_ID: val => (this.properties.discord.ownerId = val),
-    DISCORD_PREFIX: val => (this.properties.discord.prefix = val),
-    MESSAGE_MODE: val => (this.properties.discord.messageMode = val),
-    EXPRESS_ENABLED: val => (this.properties.express.enabled = val),
-    EXPRESS_PORT: val => (this.properties.express.enabled = val),
-    EXPRESS_AUTHORIZATION: val => (this.properties.express.authorization = val)
+    FRAGRUNS_MODE: val => (this.properties.fragruns.mode = val),
+    FRAGRUNS_GUILD: val => (this.properties.fragruns.guildName = val),
+    FRAGRUNS_FRIENDS: val => (this.properties.fragruns.friendsName = val),
+    FRAGRUNS_USERS: val => (this.properties.fragruns.whitelistUsers = val),
+    FRAGRUNS_SOLO: val => (this.properties.fragruns.soloUser = val),
+    FRAGRUNS_BLACKLIST: val => (this.properties.fragruns.blacklist = val),
+
   }
 
   constructor() {
@@ -65,12 +55,8 @@ class Configuration {
     return this.properties.minecraft
   }
 
-  get discord() {
-    return this.properties.discord
-  }
-
-  get express() {
-    return this.properties.express
+  get fragruns() {
+    return this.properties.fragruns
   }
 }
 
